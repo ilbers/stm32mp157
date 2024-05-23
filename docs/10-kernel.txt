@@ -1,0 +1,21 @@
+Add Linux kernel recipe
+
+What to test: Building stm32mp1 kernel.
+
+How to test:
+Build the image and check rootfs now has a kernel
+
+$ ls -1 build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/boot/
+$ ./kas-container build isar.yml
+$ ls -1 build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/boot/
+$ ls -1 build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/boot/
+config-6.1.28-isar
+initrd.img-6.1.28-isar
+System.map-6.1.28-isar
+vmlinuz-6.1.28-isar
+
+Unpack tar.gz to the target rootfs.
+
+Expected result:
+It should be possible to boot the kernel and user space if we have a working
+boot loader.
