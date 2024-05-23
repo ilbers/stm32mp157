@@ -1,0 +1,6 @@
+Add stm32mp157 machine configuration
+
+A different name has been chosen to avoid a conflict with stm32mp15x.conf in
+meta-isar.
+
+Nothing to test yet.
