@@ -1,0 +1,39 @@
+Add minimal kas configuration
+
+kas is able to fetch the listed repos, we can enter the build environment under
+Docker and build the project manually.
+
+What to test: kas shell open, build qemuamd64 image, run the image
+
+How to test:
+$ ./kas-container shell isar.yml
+kas $ ls -la /build/conf/
+kas $ rm -rf /build/conf
+kas $ cd /work/isar
+kas $ . ./isar-init-build-env /build
+kas $ bitbake mc:qemuamd64-bookworm:isar-image-base
+kas $ ls -1 tmp/deploy/images/qemuamd64
+isar-image-base-debian-bookworm-qemuamd64.dpkg_status
+isar-image-base-debian-bookworm-qemuamd64-initrd.img
+isar-image-base-debian-bookworm-qemuamd64.manifest
+isar-image-base-debian-bookworm-qemuamd64-vmlinuz
+isar-image-base-debian-bookworm-qemuamd64.wic
+isar-image-base-debian-bookworm-qemuamd64.wic.bmap
+kas $ sudo apt-get update
+kas $ sudo apt-get install -y --no-install-recommends qemu-system ovmf
+kas $ /work/isar/testsuite/start_vm.py -a amd64 -d bookworm -i isar-image-base
+
+Debian GNU/Linux 12 isar ttyS0
+
+isar login: root
+
+root@isar:~# poweroff
+kas $ exit
+
+Expected result:
+kas shell should be opened.
+qemuamd64-bookworm image should built
+qemuamd64-bookworm image should be run by qemu
+
+Note: If we want to build any target, we should change local.conf (for example,
+remove existing `build/conf` directory and generated new one by Isar).
