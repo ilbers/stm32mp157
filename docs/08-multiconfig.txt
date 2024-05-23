@@ -1,0 +1,7 @@
+Add stm32mp157-bullseye multiconfig
+
+Multiconfig files are used for building images for different targets
+(architecture, distro, ...). Using bullseye for simplicity (bookworm for
+stm32mp157d-dk1 requires additional patches).
+
+Nothing to test yet.
