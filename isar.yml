@@ -1,0 +1,13 @@
+# Copyright (C) 2024 ilbers GmbH
+
+header:
+  version: 15
+build_system: isar
+
+repos:
+  isar:
+    url: "http://github.com:/ilbers/isar"
+    commit: "2c76d889035ea05114b1a31bb73b025c0247a278"
+    layers:
+      meta:
+      meta-isar:
