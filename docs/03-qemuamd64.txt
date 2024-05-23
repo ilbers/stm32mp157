@@ -1,0 +1,11 @@
+Add image for building to kas configuration
+
+What to test: Building qemuamd64 image outside of kas shell
+
+How to test:
+$ ./kas-container build isar.yml
+
+Expected result:
+Test image should be built.
+
+Note: kas shell + manual bitbake execution should also work.
