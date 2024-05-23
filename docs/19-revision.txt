@@ -1,0 +1,16 @@
+Set project version
+
+What to test: Set project version.
+
+How to test:
+Build the image and flash wic.img to the target SD card, boot it.
+
+BUILD_ID="v0.10-104-g2c76d889"
+$ grep BUILD_ID build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/etc/os-release
+BUILD_ID="v0.10-104-g2c76d889"
+$ ./kas-container build isar.yml
+$ grep BUILD_ID build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/etc/os-release
+BUILD_ID="2024.06-cdedf76"
+
+Expected result:
+os-release BUILD_ID value should look like: year.month-gitrev.

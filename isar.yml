@@ -42,3 +42,5 @@ local_conf_header:
     # local packages
     IMAGE_INSTALL += "hostname-change"
     IMAGE_INSTALL += "tstpkg"
+
+    ISAR_RELEASE_CMD = "echo "$(date '+%Y.%m')-$(git -C ${LAYERDIR_stm32} rev-parse --short HEAD)""
