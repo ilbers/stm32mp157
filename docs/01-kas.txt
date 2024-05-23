@@ -1,0 +1,12 @@
+Download kas
+
+kas is a tool for downloading and building Yocto- and Isar-based projects.
+
+Add a copy of kas-container script from https://github.com/siemens/kas to
+provide the same build environment version for all developers.
+
+What to test: kas-container script.
+
+How to test:
+$ ./kas-container --version
+$ ./kas-container --help
