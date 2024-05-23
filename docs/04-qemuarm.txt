@@ -1,0 +1,26 @@
+Build image for ARM
+
+By default, packages built from sources are compiled with an armhf compiler
+running under qemu ("native compilation"). The same compiler is used by Debian,
+albeit on ARM hardware.
+
+What to test: Building qemuarm image. Running the image in qemu.
+
+How to test:
+$ ./kas-container build isar.yml
+$ ./kas-container shell isar.yml -c " \
+    sudo apt update && \
+    sudo apt install -y --no-install-recommends qemu-system ovmf && \
+    /work/isar/testsuite/start_vm.py -a arm -d bookworm -i isar-image-base \
+  "
+Debian GNU/Linux 12 localhost ttyAMA0
+
+localhost login:
+
+Expected result:
+Test image should be built. Image should be runnable in qemu.
+
+Note: kas shell + manual bitbake execution should also work.
+
+Note: Since there are no users configured, we can't login/poweroff the machine.
+To exit qemu, press "Ctrl-A, X".
