@@ -1,0 +1,10 @@
+# Copyright (C) 2024 ilbers GmbH
+
+part fsbl1 --source rawcopy --fstype=ext4 --part-name=fsbl1 --sourceparams "file=/usr/lib/trusted-firmware-a/${MACHINE}/tf-a-stm32mp157d-dk1.stm32" --ondisk mmcblk0 --part-type 0x8301 --fixed-size 256K --align 17
+part fsbl2 --source rawcopy --fstype=ext4 --part-name=fsbl2 --sourceparams "file=/usr/lib/trusted-firmware-a/${MACHINE}/tf-a-stm32mp157d-dk1.stm32" --ondisk mmcblk0 --part-type 0x8301 --fixed-size 256K
+
+part fip --source rawcopy --fstype=ext4 --part-name=fip --sourceparams="file=/usr/lib/trusted-firmware-a/${MACHINE}/fip.bin" --ondisk mmcblk0 --part-type 0xFFFF --fixed-size 4096K
+
+part / --source rootfs-u-boot --fstype ext4 --mkfs-extraopts "-T default" --label root --align 1024 --active --use-uuid
+
+bootloader --ptable gpt --append="rootwait rw console=ttySTM0,115200"
