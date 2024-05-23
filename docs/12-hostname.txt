@@ -1,0 +1,14 @@
+Set rootfs hostname
+
+What to test: Changing hostname.
+
+How to test:
+Build the image and check hostname is configured
+$ ./kas-container build isar.yml
+$ cat build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/etc/hostname
+isar
+
+Unpack tar.gz to the target rootfs, boot it.
+
+Expected result:
+Hostname should be changed to 'isar'.
