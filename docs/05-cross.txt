@@ -1,0 +1,23 @@
+Switch to cross-building
+
+With this change, the custom packages are built with a cross-toolchain
+(included in Debian) on the host, which is faster.
+
+What to test: Cross-building qemuarm image, run it.
+
+How to test:
+$ ./kas-container build isar.yml
+$ ./kas-container shell isar.yml -c " \
+    sudo apt update && \
+    sudo apt install -y --no-install-recommends qemu-system ovmf && \
+    /work/isar/testsuite/start_vm.py -a arm -d bookworm -i isar-image-base \
+  "
+Debian GNU/Linux 12 localhost ttyAMA0
+
+localhost login: QEMU: Terminated
+
+Expected result:
+Test image should be built. Image should be runnable in qemu.
+
+Note: Since there are no custom packages in the image, build time benefit
+from cross-building is not big for now.

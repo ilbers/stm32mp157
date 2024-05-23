@@ -14,3 +14,7 @@ repos:
     layers:
       meta:
       meta-isar:
+
+local_conf_header:
+  standard: |
+    ISAR_CROSS_COMPILE = "1"
