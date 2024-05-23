@@ -4,9 +4,9 @@ header:
   version: 15
 build_system: isar
 
-distro: debian-bookworm
-machine: qemuarm
-target: mc:qemuarm-bookworm:isar-image-base
+distro: debian-bullseye
+machine: stm32mp157
+target: mc:stm32mp157-bullseye:isar-image-base
 repos:
   isar:
     url: "http://github.com:/ilbers/isar"

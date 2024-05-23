@@ -1,0 +1,15 @@
+Switch yaml to stm32mp157 target
+
+What to test: Building stm32mp157 image.
+
+How to test:
+$ ./kas-container build isar.yml
+$ ls -1 build/tmp/deploy/images/stm32mp157/
+isar-image-base-debian-bullseye-stm32mp157.dpkg_status
+isar-image-base-debian-bullseye-stm32mp157.manifest
+isar-image-base-debian-bullseye-stm32mp157.tar.gz
+
+Expected result:
+Test image should be built.
+
+Note: There is no kernel and dtb here, so rootfs is not bootable yet.
