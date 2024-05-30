@@ -41,3 +41,4 @@ local_conf_header:
 
     # local packages
     IMAGE_INSTALL += "hostname-change"
+    IMAGE_INSTALL += "tstpkg"

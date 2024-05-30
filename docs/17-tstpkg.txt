@@ -1,0 +1,12 @@
+Add test packages
+
+What to test: The latest version of the test package is built.
+
+How to test:
+Build the image and look into <ROOTFS>/var/lib/tstpkg/version.
+$ ./kas-container build isar.yml
+$ cat build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/var/lib/tstpkg/version
+3.0
+
+Expected result:
+Value 3.0 should be found.
