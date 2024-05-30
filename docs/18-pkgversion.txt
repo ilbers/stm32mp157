@@ -1,0 +1,13 @@
+Build an earlier version of the test package
+
+What to test: Test package 2.0 is built.
+  
+How to test:
+Build isar.yml (than now includes tstpkg_2.0.yml) and look into <ROOTFS>/var/lib/tstpkg/version.
+
+$ ./kas-container build isar.yml
+$ cat build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/var/lib/tstpkg/version
+2.0
+
+Expected result:
+Value 2.0 should be found.

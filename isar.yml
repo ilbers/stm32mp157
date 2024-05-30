@@ -2,6 +2,8 @@
 
 header:
   version: 15
+  includes:
+    - tstpkg_20.yml
 build_system: isar
 
 distro: debian-bullseye
