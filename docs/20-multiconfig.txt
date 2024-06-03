@@ -1,0 +1,13 @@
+Alternative package versions for different images
+
+What to test: Different package version in different version of images
+
+How to test:
+Build isar.yml (than now includes both  multiconfigs) and look into <ROOTFS>/var/lib/tstpkg/version.
+
+$ ./kas-container build isar.yml
+$ cat build/tmp/work/debian-bullseye-armhf/isar-image-base-stm32mp157/1.0-r0/rootfs/var/lib/tstpkg/version
+2.0
+
+Expected result:
+Value 2.0 should be found.
