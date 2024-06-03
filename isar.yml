@@ -2,13 +2,13 @@
 
 header:
   version: 15
-  includes:
-    - tstpkg_20.yml
 build_system: isar
 
 distro: debian-bullseye
 machine: stm32mp157
-target: mc:stm32mp157-bullseye:isar-image-base
+target:
+  - mc:stm32mp157-bullseye:isar-image-base
+  - mc:stm32mp157-alt-bullseye:isar-image-base
 repos:
   isar:
     url: "http://github.com:/ilbers/isar"

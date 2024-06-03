@@ -1,8 +1,0 @@
-# Copyright (C) 2024 ilbers GmbH
-
-header:
-  version: 15
-
-local_conf_header:
-  tstpkg: |
-    PREFERRED_VERSION_tstpkg:stm32mp157 = "2.0"
