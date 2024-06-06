@@ -1,0 +1,8 @@
+header:
+  version: 15
+  includes:
+    - isar.yml
+
+build_system: isar
+
+target: mc:container-amd64-bookworm:isar-image-base

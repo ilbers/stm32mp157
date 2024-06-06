@@ -1,0 +1,30 @@
+Add demo yaml files for container images
+
+What to test: Building docker container and virtualbox image
+
+How to test:
+
+Build docker image and check it can be imported with docker
+$ ./kas-container build image-docker.yml
+$ docker load --input build/tmp/deploy/images/container-amd64/isar-image-base-debian-bookworm-amd64.docker-archive.gz 
+828f5c0cd6e7: Loading layer [==================================================>]  181.7MB/181.7MB
+Loaded image: isar-image-base-debian-bookworm-amd64:1.0-r0
+$ docker run -it isar-image-base-debian-bookworm-amd64:1.0-r0
+# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+# 
+
+
+Build virtualbox (ova) image and check it can be imported with virtualbox
+$ ./kas-container build image-virtualbox.yml
+$ vboxmanage import build/tmp/deploy/images/virtualbox/isar-image-base-debian-bookworm-virtualbox.ovf 
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+$ vboxmanage list vms | grep isar
+"isar-image-base-debian-bookworm-virtualbox" {00a9f0ed-e277-4518-a892-2debfcd86df0}
+$ vboxmanage startvm isar-image-base-debian-bookworm-virtualbox
+..
+isar login: 
+
+Expected result:
+- Docker image runs into the shell
+- Virtualbox image comes to login prompt
